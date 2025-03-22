@@ -6281,47 +6281,47 @@ ToggleRemoveNotify:OnChanged(function(Value)
         end)
         Options.ToggleWhite:SetValue(false)
         local SKill = Tabs.Setting:AddSection("Skill")
-local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title="Kĩ Năng Z",Description="", Default=true })
+local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title="Skill Z",Description="", Default=true })
 ToggleZ:OnChanged(function(Value)
     SkillZ=Value
 end)
 Options.ToggleZ:SetValue(true)
-local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title="Kĩ Năng X", Description="",Default=true })
+local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title="Skill X", Description="",Default=true })
 ToggleX:OnChanged(function(Value)
     SkillX=Value
 end)
 Options.ToggleX:SetValue(true)
-local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title="Kĩ Năng C",Description="", Default=true })
+local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title="Skill C",Description="", Default=true })
 ToggleC:OnChanged(function(Value)
     SkillC=Value
 end)
 Options.ToggleC:SetValue(true)
-local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title="Kĩ Năng V",Description="", Default=true })
+local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title="Skill V",Description="", Default=true })
 ToggleV:OnChanged(function(Value)
     SkillV=Value
 end)
 Options.ToggleV:SetValue(true)
-local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title="Kĩ Năng F",Description="", Default=false })
+local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title="Skill F",Description="", Default=false })
 ToggleF:OnChanged(function(Value)
    SkillF=Value
     end)
 Options.ToggleF:SetValue(true)
 local Usser = Tabs.Status:AddParagraph({
-    Title="Thông Tin",
+    Title="Information",
     Content="━━━━━━━━━━━━━━━━━━━━━\n"..
-        "Tên : "..game.Players.LocalPlayer.DisplayName.." (@"..game.Players.LocalPlayer.Name..")\n"..
-        "Cấp : "..game:GetService("Players").LocalPlayer.Data.Level.Value.."\n"..
-        "Tiền : "..game:GetService("Players").LocalPlayer.Data.Beli.Value.."\n"..
-        "Điểm F : "..game:GetService("Players").LocalPlayer.Data.Fragments.Value.."\n"..
+        "Username: "..game.Players.LocalPlayer.DisplayName.." (@"..game.Players.LocalPlayer.Name..")\n"..
+        "Lever : "..game:GetService("Players").LocalPlayer.Data.Level.Value.."\n"..
+        "Beli : "..game:GetService("Players").LocalPlayer.Data.Beli.Value.."\n"..
+        "Frag : "..game:GetService("Players").LocalPlayer.Data.Fragments.Value.."\n"..
         "Tiền Truy Nã : "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value.."\n"..
-        "Máu: "..game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth.."\n"..
-        "Năng Lượng : "..game.Players.LocalPlayer.Character.Energy.Value.."/"..game.Players.LocalPlayer.Character.Energy.MaxValue.."\n"..
-        "Tộc : "..game:GetService("Players").LocalPlayer.Data.Race.Value.."\n"..
-        "Trái : "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value.."\n"..
+        "Health: "..game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth.."\n"..
+        "Energy : "..game.Players.LocalPlayer.Character.Energy.Value.."/"..game.Players.LocalPlayer.Character.Energy.MaxValue.."\n"..
+        "Race : "..game:GetService("Players").LocalPlayer.Data.Race.Value.."\n"..
+        "Fruit : "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value.."\n"..
         "━━━━━━━━━━━━━━━━━━━━━"
 })
 local Time = Tabs.Status:AddParagraph({
-    Title="Thời Gian",
+    Title="Time",
     Content=""
 })
 local function UpdateLocalTime()
@@ -6350,7 +6350,7 @@ spawn(function()
     end
 end)
 local ServerTime = Tabs.Status:AddParagraph({
-    Title="Thời Gian Máy Chủ",
+    Title="Server Time",
     Content=""
 })
 local function UpdateServerTime()
@@ -6358,7 +6358,7 @@ local function UpdateServerTime()
     local Hour = math.floor(GameTime/(60^2)) % 24
     local Minute = math.floor(GameTime/60) % 60
     local Second = GameTime % 60
-    ServerTime:SetDesc(string.format("%02d Tiếng-%02d Phút-%02d Giây", Hour, Minute, Second))
+    ServerTime:SetDesc(string.format("%02d H-%02d M-%02d S", Hour, Minute, Second))
 end
 spawn(function()
     while task.wait() do
@@ -6366,7 +6366,7 @@ spawn(function()
     end
 end)
 local FrozenIsland = Tabs.Status:AddParagraph({
-    Title="Đảo Leviathan",
+    Title="Leviathan Island",
     Content=""
 })
 spawn(function()
@@ -6383,7 +6383,7 @@ end)
 local Input = Tabs.Status:AddInput("Input", {
         Title="Job ID",
         Default="",
-        Placeholder="Dán Job ID Vào Đây",
+        Placeholder="Put In here",
         Numeric=false, 
         Finished=false, 
         Callback=function(Value)
@@ -6391,20 +6391,20 @@ local Input = Tabs.Status:AddInput("Input", {
         end
     })
     Tabs.Status:AddButton({
-        Title="Bắt Đầu Tham Gia Job ID",
+        Title="Join Job ID",
         Description="",
         Callback=function()
             game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
         end
     })
     Tabs.Status:AddButton({
-        Title="Sao Chép Job ID",
+        Title="Copy Job ID",
         Description="",
         Callback=function()
             setclipboard(tostring(game.JobId))
         end
     })
-    local Toggle = Tabs.Status:AddToggle("MyToggle", {Title="Spam Tham Gia Job ID", Default=false })
+    local Toggle = Tabs.Status:AddToggle("MyToggle", {Title="Spam Join Job ID", Default=false })
     Toggle:OnChanged(function(Value)
   _G.Join=Value
         end)
@@ -6415,27 +6415,27 @@ game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, 
 end
 end
 end)
-local ToggleMelee = Tabs.Stats:AddToggle("ToggleMelee", {Title="Nâng Đấm",Description="", Default=false })
+local ToggleMelee = Tabs.Stats:AddToggle("ToggleMelee", {Title="Auto Mele",Description="", Default=false })
 ToggleMelee:OnChanged(function(Value)
     _G.Auto_Stats_Melee=Value
     end)
 Options.ToggleMelee:SetValue(false)
-local ToggleDe = Tabs.Stats:AddToggle("ToggleDe", {Title="Nâng Máu",Description="", Default=false })
+local ToggleDe = Tabs.Stats:AddToggle("ToggleDe", {Title="Auto Defense",Description="", Default=false })
 ToggleDe:OnChanged(function(Value)
     _G.Auto_Stats_Defense=Value
     end)
 Options.ToggleDe:SetValue(false)
-local ToggleSword = Tabs.Stats:AddToggle("ToggleSword", {Title="Nâng Kiếm",Description="", Default=false })
+local ToggleSword = Tabs.Stats:AddToggle("ToggleSword", {Title="Auto Sword",Description="", Default=false })
 ToggleSword:OnChanged(function(Value)
     _G.Auto_Stats_Sword=Value
     end)
 Options.ToggleSword:SetValue(false)
-local ToggleGun = Tabs.Stats:AddToggle("ToggleGun", {Title="Nâng Súng", Description="",Default=false })
+local ToggleGun = Tabs.Stats:AddToggle("ToggleGun", {Title="Auto Gun", Description="",Default=false })
 ToggleGun:OnChanged(function(Value)
     _G.Auto_Stats_Gun=Value
     end)
 Options.ToggleGun:SetValue(false)
-local ToggleFruit = Tabs.Stats:AddToggle("ToggleFruit", {Title="Nâng Trái",Description="", Default=false })
+local ToggleFruit = Tabs.Stats:AddToggle("ToggleFruit", {Title="Auto Fruit",Description="", Default=false })
 ToggleFruit:OnChanged(function(Value)
     _G.Auto_Stats_Devil_Fruit=Value
     end)
@@ -6516,7 +6516,7 @@ SelectedPly:OnChanged(function(Value)
     _G.SelectPly=Value
 end)
 Tabs.Player:AddButton({
-    Title="Tải Lại Người Chơi",
+    Title="Reset Player",
     Description="",
     Callback=function()
         table.clear(Playerslist)
