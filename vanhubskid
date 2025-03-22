@@ -3,10 +3,10 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local Window = Fluent:CreateWindow({
     Title="VanLong Hub",
     SubTitle="By VanLong Skid", 
-    TabWidth=160, 
+    TabWidth=155, 
     Theme="Dark",
     Acrylic=false,
-    Size=UDim2.fromOffset(500, 320), 
+    Size=UDim2.fromOffset(555, 320), 
     MinimizeKey=Enum.KeyCode.End
 })
 local Tabs = {
