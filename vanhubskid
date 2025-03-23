@@ -23,7 +23,7 @@ local Tabs = {
     Visual=Window:AddTab({ Title="Tab Fake" }),
     Fruit=Window:AddTab({ Title="Tab Fruit" }),
     Raid=Window:AddTab({ Title="Tab Raid" }),
-    Race=Window:AddTab({ Title="Tab Race" }),
+    Race=Window:AddTab({ Title="Tab Mirage+Trial v4" }),
     Shop=Window:AddTab({ Title="Tab Shop" }),
     Misc=Window:AddTab({ Title="Tab Mics" }),
 }
@@ -4463,7 +4463,7 @@ spawn(function()
        end)
     end
 if Sea3 then
-    local AutoMysticIsland = Tabs.Sea:AddSection("Mirage Island")
+    local AutoMysticIsland = Tabs.Race:AddSection("Mirage Island")
     local StatusMirage = Tabs.Sea:AddParagraph({
         Title="Status",
         Content=""
@@ -4506,7 +4506,7 @@ if Sea3 then
             end
         end)
     end)
-    Tabs.Sea:AddButton({
+    Tabs.Race:AddButton({
         Title="Teleport to High Place",
         Description="",
         Callback=function()
@@ -4532,7 +4532,7 @@ if Sea3 then
         end
     end
 end
-local ToggleTpAdvanced = Tabs.Sea:AddToggle("ToggleTpAdvanced", {
+local ToggleTpAdvanced = Tabs.Race:AddToggle("ToggleTpAdvanced", {
     Title="Teleport to Advanced Fruit Dealer", 
     Description="", 
     Default=false
@@ -4553,7 +4553,7 @@ spawn(function()
         end
     end
 end)
-local ToggleTweenGear = Tabs.Sea:AddToggle("ToggleTweenGear", {Title="Teleport to Gear",Description="", Default=false })
+local ToggleTweenGear = Tabs.Race:AddToggle("ToggleTweenGear", {Title="Teleport to Gear",Description="", Default=false })
 ToggleTweenGear:OnChanged(function(Value)
     _G.TweenToGear=Value
 end) 
@@ -4575,7 +4575,7 @@ spawn(function()
         end
     end)
     end)
-local Togglelockmoon = Tabs.Sea:AddToggle("Togglelockmoon", {
+local Togglelockmoon = Tabs.Race:AddToggle("Togglelockmoon", {
     Title="Look to Moon",
     Description="",
     Default=false
