@@ -9,6 +9,7 @@ local Window = Fluent:CreateWindow({
     Size=UDim2.fromOffset(555, 320), 
     MinimizeKey=Enum.KeyCode.End
 })
+
 local Tabs = {
     Info=Window:AddTab({ Title="Tab Information" }),
     Main=Window:AddTab({ Title="Tab Main Farm" }),
@@ -25,7 +26,26 @@ local Tabs = {
     Raid=Window:AddTab({ Title="Tab Raid" }),
     Race=Window:AddTab({ Title="Tab Mirage+Trial V4" }),
     Shop=Window:AddTab({ Title="Tab Shop" }),
-    Misc=Window:AddTab({ Title="Tab Mics" }),
+    Misc=Window:AddTab({ Title="Tab Mics" })
+}
+
+-- Thêm thông báo sau khi tạo cửa sổ và các tab
+local lastNotificationTime = 0
+local notificationCooldown = 10 -- Giới hạn thời gian giữa các thông báo (ví dụ 60 giây)
+
+local function checkNotification()
+    local currentTime = os.time()
+    if currentTime - lastNotificationTime >= notificationCooldown then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "VanLong Hub",
+            Text = "The Script Own By VanLong rewrite",
+            Duration = 5
+        })
+        lastNotificationTime = currentTime
+    end
+end
+
+checkNotification() -- Gọi hàm để kiểm tra và gửi thông báo
 }
 local Options = Fluent.Options
 local id = game.PlaceId
