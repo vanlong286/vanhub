@@ -3942,6 +3942,7 @@ local function createToggle(title, toggleKey, islands, islandName, notification)
         end
     end)
 end
+local Mastery = Tabs.SeaEvent:AddSection("Auto Find")
 createToggle("Auto Find Prehistoric Island", "AutoFindPrehistoric", islandsToDelete.Prehistoric, "PrehistoricIsland", "Find Prehistoric IsLand")
 createToggle("Auto Find Mirage Island", "AutoFindMirage", islandsToDelete.Mirage, "MysticIsland", "Find Mirage Island")
 createToggle("Auto Find Leviathan", "AutoFindFrozen", islandsToDelete.Frozen, "FrozenDimension", "Find Leviathan")
