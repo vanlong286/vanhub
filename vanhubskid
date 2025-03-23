@@ -3766,8 +3766,8 @@ local boss = Tabs.Main:AddSection("Boss")
         end
       end)
 if Sea3 then
-local RoughSea = Tabs.Sea:AddSection("Kitsune Island")
-local StatusKitsune = Tabs.Sea:AddParagraph({
+local RoughSea = Tabs.SeaEvent:AddSection("Kitsune Island")
+local StatusKitsune = Tabs.SeaEvent:AddParagraph({
     Title = "Status Kitsune Island",
     Content = ""
 })
@@ -3785,7 +3785,7 @@ spawn(function()
         end
     end)
 end)
-local ToggleTPKitsune = Tabs.Sea:AddToggle("ToggleTPKitsune", {Title = "Teleport Kitsune Island", Description = "", Default = false})
+local ToggleTPKitsune = Tabs.SeaEvent:AddToggle("ToggleTPKitsune", {Title = "Teleport Kitsune Island", Description = "", Default = false})
 ToggleTPKitsune:OnChanged(function(Value)
     _G.TweenToKitsune = Value
 end)
@@ -3809,7 +3809,7 @@ spawn(function()
         end
     end
 end)
-local ToggleCollectAzure = Tabs.Sea:AddToggle("ToggleCollectAzure", {Title = "Auto Collect Azure", Description = "", Default = false})
+local ToggleCollectAzure = Tabs.SeaEvent:AddToggle("ToggleCollectAzure", {Title = "Auto Collect Azure", Description = "", Default = false})
 ToggleCollectAzure:OnChanged(function(Value)
     _G.CollectAzure = Value
 end)
@@ -3825,14 +3825,14 @@ spawn(function()
         end
     end
 end)
-Tabs.Sea:AddButton({
-    Title = "Auto Trade Azure Ember",
+Tabs.SeaEvent:AddButton({
+    Title = "Trade Azure Ember",
     Description = "",
     Callback = function()            
         game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
     end
 })
-local RoughSea = Tabs.Sea:AddSection("Sea Event")
+local RoughSea = Tabs.SeaEvent:AddSection("Sea Event")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local VirtualInputManager = game:GetService("VirtualInputManager")
@@ -3945,7 +3945,7 @@ end
 createToggle("Auto Find Prehistoric Island", "AutoFindPrehistoric", islandsToDelete.Prehistoric, "PrehistoricIsland", "Find Prehistoric IsLand")
 createToggle("Auto Find Mirage Island", "AutoFindMirage", islandsToDelete.Mirage, "MysticIsland", "Find Mirage Island")
 createToggle("Auto Find Leviathan", "AutoFindFrozen", islandsToDelete.Frozen, "FrozenDimension", "Find Leviathan")
-local AutoComeTikiToggle = Tabs.Sea:AddToggle("AutoComeTiki", {
+local AutoComeTikiToggle = Tabs.SeaEvent:AddToggle("AutoComeTiki", {
     Title="Auto Come Tiki",
     Description="",
     Default=false
@@ -3983,7 +3983,7 @@ RunService.RenderStepped:Connect(function()
         end
     end
 end)
-local AutoComeHydraToggle = Tabs.Sea:AddToggle("AutoComeHydra", {
+local AutoComeHydraToggle = Tabs.SeaVent:AddToggle("AutoComeHydra", {
     Title="Auto Come Hydra",
     Description="",
     Default=false
@@ -4021,7 +4021,7 @@ RunService.RenderStepped:Connect(function()
         end
     end
 end)
-Tabs.Sea:AddButton({
+Tabs.SeaEvent:AddButton({
     Title="Come to boat seller ",
     Description="",
     Callback=function()
@@ -4072,21 +4072,21 @@ game:GetService("RunService").RenderStepped:Connect(function()
         end
     end
 end)
-Tabs.Sea:AddButton({
+Tabs.SeaEvent:AddButton({
     Title="Buy Boat",
     Description="",
     Callback=function()
         buyBoat(selectedBoat)
     end
 })
-Tabs.Sea:AddButton({
+Tabs.SeaEvent:AddButton({
     Title="Tween to your boat",
     Description="Only your boat",
     Callback=function()
         tpToMyBoat()
     end
 })
-local ToggleTerrorshark = Tabs.Sea:AddToggle("ToggleTerrorshark", {Title="Auto kill Terrorshark", Description="", Default=false})
+local ToggleTerrorshark = Tabs.SeaEvent:AddToggle("ToggleTerrorshark", {Title="Auto kill Terrorshark", Description="", Default=false})
 ToggleTerrorshark:OnChanged(function(Value)
     _G.AutoTerrorshark = Value
 end)
@@ -4139,7 +4139,7 @@ spawn(function()
         end
     end
 end)
-     local TogglePiranha = Tabs.Sea:AddToggle("TogglePiranha", {Title="Auto Kill Piranha",Description="", Default=false })
+     local TogglePiranha = Tabs.SeaEvent:AddToggle("TogglePiranha", {Title="Auto Kill Piranha",Description="", Default=false })
      TogglePiranha:OnChanged(function(Value)
         _G.farmpiranya=Value
      end)
@@ -4174,7 +4174,7 @@ end)
             end
         end
      end)
-     local ToggleShark = Tabs.Sea:AddToggle("ToggleShark", {Title="Auto Kill shark",Description="", Default=false })
+     local ToggleShark = Tabs.SeaEvent:AddToggle("ToggleShark", {Title="Auto Kill shark",Description="", Default=false })
      ToggleShark:OnChanged(function(Value)
         _G.AutoShark=Value
      end)
@@ -4211,7 +4211,7 @@ end)
             end
         end
     end)
-    local ToggleFishCrew = Tabs.Sea:AddToggle("ToggleFishCrew", {Title="Auto Kill FishCrew",Description="", Default=false })
+    local ToggleFishCrew = Tabs.SeaEvent:AddToggle("ToggleFishCrew", {Title="Auto Kill FishCrew",Description="", Default=false })
     ToggleFishCrew:OnChanged(function(Value)
        _G.AutoFishCrew=Value
     end)
@@ -4248,7 +4248,7 @@ end)
             end
         end
     end)
-    local ToggleShip = Tabs.Sea:AddToggle("ToggleShip", {Title="Auto kill PirateBrigade",Description="", Default=false })
+    local ToggleShip = Tabs.SeaEvent:AddToggle("ToggleShip", {Title="Auto kill PirateBrigade",Description="", Default=false })
     ToggleShip:OnChanged(function(Value)
         _G.Ship=Value
        end)
@@ -4284,7 +4284,7 @@ while wait() do
     end
 end
 end)
-    local ToggleGhostShip = Tabs.Sea:AddToggle("ToggleGhostShip", {Title="Haunted Shipwreck",Description="",Default=false })
+    local ToggleGhostShip = Tabs.SeaEvent:AddToggle("ToggleGhostShip", {Title="Haunted Shipwreck",Description="",Default=false })
     ToggleGhostShip:OnChanged(function(Value)
         _G.GhostShip=Value
        end)
@@ -4402,7 +4402,7 @@ spawn(function()
       end)
     local AutoElite = Tabs.Main:AddSection("Elite")
     local StatusElite = Tabs.Main:AddParagraph({
-        Title="Trạng Thái Elite",
+        Title="Status Elite",
         Content=""
     })
     spawn(function()
