@@ -3983,7 +3983,7 @@ RunService.RenderStepped:Connect(function()
         end
     end
 end)
-local AutoComeHydraToggle = Tabs.SeaVent:AddToggle("AutoComeHydra", {
+local AutoComeHydraToggle = Tabs.SeaEvent:AddToggle("AutoComeHydra", {
     Title="Auto Come Hydra",
     Description="",
     Default=false
