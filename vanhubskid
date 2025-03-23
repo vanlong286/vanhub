@@ -8703,7 +8703,7 @@ Tabs.Sea:AddButton({
 })
 Tabs.Sea:AddButton({
     Title="Craft Volcanic Magnet",
-    Description="15 Blaze Ember ,10 Scrap Metal,
+    Description="15 Blaze Ember ,10 Scrap Metal",
     Callback=function()
         local args = {
             [1]="CraftItem",
