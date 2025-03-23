@@ -13,6 +13,7 @@ local Tabs = {
     Info=Window:AddTab({ Title="Tab Information" }),
     Main=Window:AddTab({ Title="Tab Main Farm" }),
     Sea=Window:AddTab({ Title="Tab Event" }),
+    SeaEvent=Window:AddTab({ Title="Tab Sea Event" }),
     Item=Window:AddTab({ Title="Tab Items" }),
     Setting=Window:AddTab({ Title="Tab Setting" }),
     Status=Window:AddTab({ Title="Tab Server" }),
@@ -8469,9 +8470,9 @@ spawn(function()
         end
     end
 end)
-local Mastery = Tabs.Sea:AddSection("Leviathan")
-Tabs.Sea:AddButton({
-    Title="Buy Fra with Spy",
+local Mastery = Tabs.SeaEvent:AddSection("Leviathan")
+Tabs.SeaEvent:AddButton({
+    Title="Buy Frag with Spy",
     Description="",
     Callback=function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("InfoLeviathan", "2")
@@ -8501,7 +8502,7 @@ spawn(function()
     end
 end)
 if Sea3 then
-    local BribeLeviathan = Tabs.Sea:AddParagraph({
+    local BribeLeviathan = Tabs.SeaEvent:AddParagraph({
         Title="Spy Status",
         Content=""
     })
@@ -8638,7 +8639,7 @@ spawn(function()
     end)
 end)
 local ToggleHydraTree = Tabs.Sea:AddToggle("ToggleHydraTree", { 
-    Title = "Destruction Hydra Trê", 
+    Title = "Destruction Hydra Tree", 
     Description = "", 
     Default = false 
 })
@@ -8823,8 +8824,8 @@ spawn(function()
         end
     end
 end)
-local Volcano = Tabs.Sea:AddSection("Prehistoric Island")
-local Prehistoric = Tabs.Sea:AddParagraph({
+local Volcano = Tabs.SeaEvent:AddSection("Prehistoric Island")
+local Prehistoric = Tabs.SeaEvent:AddParagraph({
     Title="Status Prehistoric Island",
     Content=""
 })
@@ -8839,7 +8840,7 @@ spawn(function()
         end
     end)
 end)
-local ToggleTPVolcano = Tabs.Sea:AddToggle("ToggleTPVolcano", { 
+local ToggleTPVolcano = Tabs.SeaEvent:AddToggle("ToggleTPVolcano", { 
     Title="Teleport to Prehistoric Island", 
     Description="", 
     Default=false 
@@ -8868,7 +8869,7 @@ spawn(function()
         end
     end
 end)
-local ToggleDefendVolcano = Tabs.Sea:AddToggle("ToggleDefendVolcano", {
+local ToggleDefendVolcano = Tabs.SeaEvent:AddToggle("ToggleDefendVolcano", {
     Title = "Auto Fix Volcanic", 
     Description = "", 
     Default = false
@@ -8876,7 +8877,7 @@ local ToggleDefendVolcano = Tabs.Sea:AddToggle("ToggleDefendVolcano", {
 ToggleDefendVolcano:OnChanged(function(Value)
     _G.AutoDefendVolcano = Value
 end)
-local ToggleMelee = Tabs.Sea:AddToggle("ToggleMelee", {
+local ToggleMelee = Tabs.SeaEvent:AddToggle("ToggleMelee", {
     Title = "Use Melee", 
     Description = "", 
     Default = false
@@ -8884,7 +8885,7 @@ local ToggleMelee = Tabs.Sea:AddToggle("ToggleMelee", {
 ToggleMelee:OnChanged(function(Value)
     _G.UseMelee = Value
 end)
-local ToggleSword = Tabs.Sea:AddToggle("ToggleSword", {
+local ToggleSword = Tabs.SeaEvent:AddToggle("ToggleSword", {
     Title = "Use Sword", 
     Description = "", 
     Default = false
@@ -8892,7 +8893,7 @@ local ToggleSword = Tabs.Sea:AddToggle("ToggleSword", {
 ToggleSword:OnChanged(function(Value)
     _G.UseSword = Value
 end)
-local ToggleGun = Tabs.Sea:AddToggle("ToggleGun", {
+local ToggleGun = Tabs.SeaEvent:AddToggle("ToggleGun", {
     Title = "Use Gun", 
     Description = "", 
     Default = false
@@ -8994,7 +8995,7 @@ spawn(function()
         end
     end
 end)
-local ToggleKillAura = Tabs.Sea:AddToggle("ToggleKillAura", {Title="Auto Kill Golems Aura",Description="", Default=false })
+local ToggleKillAura = Tabs.SeaEvent:AddToggle("ToggleKillAura", {Title="Auto Kill Golems Aura",Description="", Default=false })
 ToggleKillAura:OnChanged(function(Value)
     KillAura=Value
 end)
@@ -9016,7 +9017,7 @@ spawn(function()
         end
     end
 end)
-local ToggleCollectBone = Tabs.Sea:AddToggle("ToggleCollectBone", {
+local ToggleCollectBone = Tabs.SeaEvent:AddToggle("ToggleCollectBone", {
     Title="Auto Collect Dinosaur Bones", 
     Description="", 
     Default=false
@@ -9035,7 +9036,7 @@ spawn(function()
         end
     end
 end)
-local ToggleCollectEgg = Tabs.Sea:AddToggle("ToggleCollectEgg", {
+local ToggleCollectEgg = Tabs.SeaEvent:AddToggle("ToggleCollectEgg", {
     Title = "Auto Colect Egg",
     Description = "",
     Default = false
