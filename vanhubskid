@@ -4532,7 +4532,6 @@ if Sea3 then
         end
     end
 end
-createToggle("Auto Find Mirage Island", "AutoFindMirage", islandsToDelete.Mirage, "MysticIsland", "Find Mirage Island")
 local ToggleTpAdvanced = Tabs.Race:AddToggle("ToggleTpAdvanced", {
     Title="Teleport to Advanced Fruit Dealer", 
     Description="", 
@@ -8479,7 +8478,6 @@ Tabs.SeaEvent:AddButton({
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("InfoLeviathan", "2")
     end
 })
-createToggle("Auto Find Leviathan", "AutoFindFrozen", islandsToDelete.Frozen, "FrozenDimension", "Find Leviathan")
 local ToggleTPFrozenDimension = Tabs.Sea:AddToggle("ToggleTPFrozenDimension", {
     Title="Teleport Frozen Dimension", 
     Description="Teleport to Leviathan Island", 
@@ -8842,7 +8840,6 @@ spawn(function()
         end
     end)
 end)
-createToggle("Auto Find Prehistoric Island", "AutoFindPrehistoric", islandsToDelete.Prehistoric, "PrehistoricIsland", "Find Prehistoric IsLand")
 local ToggleTPVolcano = Tabs.SeaEvent:AddToggle("ToggleTPVolcano", { 
     Title="Teleport to Prehistoric Island", 
     Description="", 
