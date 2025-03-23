@@ -23,7 +23,7 @@ local Tabs = {
     Visual=Window:AddTab({ Title="Tab Fake" }),
     Fruit=Window:AddTab({ Title="Tab Fruit" }),
     Raid=Window:AddTab({ Title="Tab Raid" }),
-    Race=Window:AddTab({ Title="Tab Race" }),
+    Race=Window:AddTab({ Title="Tab Mirage+Trial V4" }),
     Shop=Window:AddTab({ Title="Tab Shop" }),
     Misc=Window:AddTab({ Title="Tab Mics" }),
 }
@@ -2388,7 +2388,7 @@ end)
         end
       end)
     local ToggleCastleRaid = Tabs.Main:AddToggle("ToggleCastleRaid", {
-        Title="Auto Castle Raid",
+        Title="Auto Pirates Raid",
         Description="Spawns every 1:30", 
         Default=false })
     ToggleCastleRaid:OnChanged(function(Value)
@@ -2502,48 +2502,6 @@ spawn(function()
                 local ChestPosition = Nearest:GetPivot().Position
                 local CFrameTarget = CFrame.new(ChestPosition)
                 Tween2(CFrameTarget) 
-            end
-        end
-    end
-end)
-local ToggleCollectBerry = Tabs.Main:AddToggle("ToggleCollectBerry", {
-    Title = "Auto Berry",
-    Description = "",
-    Default = false
-})
-ToggleCollectBerry:OnChanged(function(Value)
-    _G.AutoCollectBerry = Value
-end)
-spawn(function()
-    while wait() do
-        if _G.AutoCollectBerry then
-            local Players = game:GetService("Players")
-            local Player = Players.LocalPlayer
-            local Character = Player.Character or Player.CharacterAdded:Wait()
-            local Position = Character:GetPivot().Position
-            local CollectionService = game:GetService("CollectionService")
-            local BerryBushes = CollectionService:GetTagged("BerryBush")
-            local Distance, Nearest, BerryName = math.huge, nil, nil
-            for i = 1, #BerryBushes do
-                local Bush = BerryBushes[i]
-                for AttributeName, Berry in pairs(Bush:GetAttributes()) do
-                    local Magnitude = (Bush.Parent:GetPivot().Position - Position).Magnitude
-                    if Magnitude < Distance then
-                        Distance, Nearest, BerryName = Magnitude, Bush, Berry
-                    end
-                end
-            end
-            if Nearest then
-                local BushPosition = Nearest.Parent:GetPivot().Position
-                local CFrameTarget = CFrame.new(BushPosition)
-                Tween2(CFrameTarget)
-                Fluent:Notify({
-                    Title = "Strix",
-                    Content = "Tìm Thấy Berry: " .. tostring(BerryName),
-                    Duration = 10
-                })
-            else
-                Hop()
             end
         end
     end
@@ -4609,7 +4567,7 @@ spawn(function()
 end)
 local ToggleAutoSaber = Tabs.Item:AddToggle("ToggleAutoSaber", {
     Title="Auto Saber",
-    Description="Only sea 1",
+    Description="First Sea",
     Default=false
 })
 ToggleAutoSaber:OnChanged(function(Value)
@@ -4727,7 +4685,7 @@ spawn(function()
 end)
 local ToggleAutoPoleV1 = Tabs.Item:AddToggle("ToggleAutoPoleV1", {
     Title="Auto Pole V1",
-    Description="Only sea 1",
+    Description="First Sea",
     Default=false
 })
 ToggleAutoPoleV1:OnChanged(function(Value)
@@ -4771,7 +4729,7 @@ spawn(function()
 end)
 local ToggleAutoSaw = Tabs.Item:AddToggle("ToggleAutoSaw", {
     Title="Auto Shark Saw",
-    Description="Only sea 1",
+    Description="First Sea",
     Default=false
 })
 ToggleAutoSaw:OnChanged(function(Value)
@@ -4815,7 +4773,7 @@ spawn(function()
 end)
 local ToggleAutoWarden = Tabs.Item:AddToggle("ToggleAutoWarden", {
     Title="Auto Wardens Sword",
-    Description="Only sea 1",
+    Description="First Sea",
     Default=false
 })
 ToggleAutoWarden:OnChanged(function(Value)
@@ -5961,7 +5919,7 @@ spawn(function()
 end)
 local ToggleAutoRengoku = Tabs.Item:AddToggle("ToggleAutoRengoku", {
     Title="Auto Rengoku",
-    Description="Secon sea",
+    Description="Second Sea",
     Default=false
 })
 ToggleAutoRengoku:OnChanged(function(Value)
@@ -6314,7 +6272,7 @@ local Usser = Tabs.Status:AddParagraph({
         "Lever : "..game:GetService("Players").LocalPlayer.Data.Level.Value.."\n"..
         "Beli : "..game:GetService("Players").LocalPlayer.Data.Beli.Value.."\n"..
         "Frag : "..game:GetService("Players").LocalPlayer.Data.Fragments.Value.."\n"..
-        "Tiền Truy Nã : "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value.."\n"..
+        "Bounty : "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value.."\n"..
         "Health: "..game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth.."\n"..
         "Energy : "..game.Players.LocalPlayer.Character.Energy.Value.."/"..game.Players.LocalPlayer.Character.Energy.MaxValue.."\n"..
         "Race : "..game:GetService("Players").LocalPlayer.Data.Race.Value.."\n"..
@@ -7434,7 +7392,7 @@ function UpdateIslandMirageEsp()
 end
 local Chips = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","Buddha","Sand","Phoenix","Dough"}
 local DropdownRaid = Tabs.Raid:AddDropdown("DropdownRaid", {
-    Title="Chọn Chip",
+    Title="Select Chip",
     Description="",
     Values=Chips,
     Multi=false,
@@ -7444,7 +7402,7 @@ DropdownRaid:SetValue(SelectChip)
 DropdownRaid:OnChanged(function(Value)
     SelectChip=Value
 end)
-local ToggleBuy = Tabs.Raid:AddToggle("ToggleBuy", {Title="Mua Chip", Description="",Default=false })
+local ToggleBuy = Tabs.Raid:AddToggle("ToggleBuy", {Title="Buy Chip", Description="",Default=false })
 ToggleBuy:OnChanged(function(Value)
     _G.Auto_Buy_Chips_Dungeon=Value
 end)
