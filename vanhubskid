@@ -23,7 +23,7 @@ local Tabs = {
     Visual=Window:AddTab({ Title="Tab Fake" }),
     Fruit=Window:AddTab({ Title="Tab Fruit" }),
     Raid=Window:AddTab({ Title="Tab Raid" }),
-    Race=Window:AddTab({ Title="Tab Mirage+Trial v4" }),
+    Race=Window:AddTab({ Title="Tab Race" }),
     Shop=Window:AddTab({ Title="Tab Shop" }),
     Misc=Window:AddTab({ Title="Tab Mics" }),
 }
@@ -3933,7 +3933,7 @@ local function createToggle(title, toggleKey, islands, islandName, notification)
             _G[toggleKey] = false
             if not notified then
                 Fluent:Notify({
-                    Title = "Strix",
+                    Title = "VanLong",
                     Content = notification,
                     Duration = 10
                 })
@@ -4532,6 +4532,7 @@ if Sea3 then
         end
     end
 end
+createToggle("Auto Find Mirage Island", "AutoFindMirage", islandsToDelete.Mirage, "MysticIsland", "Find Mirage Island")
 local ToggleTpAdvanced = Tabs.Race:AddToggle("ToggleTpAdvanced", {
     Title="Teleport to Advanced Fruit Dealer", 
     Description="", 
@@ -8478,6 +8479,7 @@ Tabs.SeaEvent:AddButton({
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("InfoLeviathan", "2")
     end
 })
+createToggle("Auto Find Leviathan", "AutoFindFrozen", islandsToDelete.Frozen, "FrozenDimension", "Find Leviathan")
 local ToggleTPFrozenDimension = Tabs.Sea:AddToggle("ToggleTPFrozenDimension", {
     Title="Teleport Frozen Dimension", 
     Description="Teleport to Leviathan Island", 
@@ -8840,6 +8842,7 @@ spawn(function()
         end
     end)
 end)
+createToggle("Auto Find Prehistoric Island", "AutoFindPrehistoric", islandsToDelete.Prehistoric, "PrehistoricIsland", "Find Prehistoric IsLand")
 local ToggleTPVolcano = Tabs.SeaEvent:AddToggle("ToggleTPVolcano", { 
     Title="Teleport to Prehistoric Island", 
     Description="", 
